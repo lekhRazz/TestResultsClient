@@ -1,0 +1,38 @@
+ul{
+    list-style-type: none;
+    margin-left: 0px;
+}
+ul li{
+    float:left;
+    padding: 8px;
+}
+
+.data-wrapper{
+    min-width: 800px;
+    margin: 0 auto;
+    margin-top: 5px;
+    padding:5px;
+    overflow: hidden;
+    height: 1600px;
+
+}
+.form-wrapper{
+    min-width: 800px;
+    padding: 5px;
+    margin: 5px;
+    overflow: hidden;
+}
+.form-wrapper form{
+   min-width: 800px;
+    padding: 5px;
+    margin: 5px;
+}
+.table-wrapper{
+    width:500px;
+    float: left
+}
+.detail-wrapper{
+    width: 300px;
+    margin-left: 500px;
+    border: 1px solid black;
+}

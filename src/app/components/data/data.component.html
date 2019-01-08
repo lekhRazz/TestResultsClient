@@ -1,0 +1,95 @@
+<app-header></app-header>
+<div class="container">
+
+  <div class="form-wrapper">
+    <form>
+      <ul>
+        <li>
+          <p><span>Filter:</span></p>
+        </li>
+        <li>
+          <input type="text" name="searchString" [(ngModel)]="searchString" onkeyup="myFunction()" placeholder="search for result">
+
+        </li>
+        <li>
+          <button (click)="displayFormRegister()">Add</button>
+        </li>
+        <li>
+          <button *ngIf='rowSelected===true' (click)="deleteTrainee(traineeObject)">Remove</button>
+        </li>
+      </ul>
+    </form>
+  </div>
+  <div class="data-wrapper">
+    <div class="table-wrapper">
+      <table class="table table-bordered" *ngIf="listTrainee" id="traineeListTable">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">Grade</th>
+            <th scope="cool">Subject</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let trainee of listTrainee| filter : 'name' : searchString;let i=index" (click)="rowSelect(trainee)">
+            <td scope="row">{{i+1}}</td>
+            <td>{{trainee.name}}</td>
+            <td>{{trainee.joined_date|date}}</td>
+            <td>{{trainee.grade}}</td>
+            <td>{{trainee.subject}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="detail-wrapper">
+      <div class="label-wrapper">
+        <p><span style="text-decoration:underline">Details:</span></p>
+      </div>
+      <table *ngIf="traineeObject">
+        <tr>
+          <td>ID:</td>
+          <td>{{traineeObject._id}}</td>
+        </tr>
+        <tr>
+          <td>Name:</td>
+          <td>{{traineeObject.name}}</td>
+        </tr>
+        <tr>
+          <td>Grade:</td>
+          <td>{{traineeObject.grade}}</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>{{traineeObject.email}}</td>
+        </tr>
+        <tr>
+          <td>Date Joined:</td>
+          <td>{{traineeObject.joined_date |date}}</td>
+        </tr>
+        <tr>
+          <td>Address:</td>
+          <td>{{traineeObject.address}}</td>
+        </tr>
+        <tr>
+          <td>City:</td>
+          <td>{{traineeObject.city}}</td>
+        </tr>
+        <tr>
+          <td>Country:</td>
+          <td>{{traineeObject.country}}</td>
+        </tr>
+        <tr>
+          <td>ZIP:</td>
+          <td>{{traineeObject.zip}}</td>
+        </tr>
+        <tr>
+          <td>Subject:</td>
+          <td>{{traineeObject.subject}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+

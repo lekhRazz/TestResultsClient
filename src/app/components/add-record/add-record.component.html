@@ -1,0 +1,121 @@
+<app-header></app-header>
+<div class="form-block">
+  <div class="container">
+    <form [formGroup]="postTraineeData" (ngSubmit)="onSubmit()" novalidate>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" aria-describedby="emailHelp" formControlName="name"
+          placeholder="Enter name">
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+          <div *ngIf="name.errors.required">
+            name is required.
+          </div>
+          <div *ngIf="name.errors.minlength">
+            Name must be 5 charactor long.
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="grade">Grade</label>
+        <input type="text" class="form-control" id="grade" formControlName="grade" placeholder="grade">
+        <div *ngIf="grade.invalid && (grade.dirty || grade.touched)" class="alert alert-danger">
+          <div *ngIf="grade.errors.required">
+            grade is required.
+          </div>
+          <div *ngIf="grade.errors.minlength">
+            grade must be 1 charactor long.
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email" placeholder="email">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+          <div *ngIf="email.errors.required">
+            email is required.
+          </div>
+          <div *ngIf="email.errors.minlength">
+            email must be 5 charactor long.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="datejoined">Date Joined</label>
+        <input type="date" class="form-control" id="datejoined" formControlName="joined_date" placeholder="YYYY/MM/DD">
+        <div *ngIf="joined_date.invalid && (joined_date.dirty || joined_date.touched)" class="alert alert-danger">
+          <div *ngIf="joined_date.errors.required">
+            joined_date is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" formControlName="address" placeholder="address">
+        <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+          <div *ngIf="address.errors.required">
+            address is required.
+          </div>
+          <div *ngIf="address.errors.minlength">
+            address must be 4 charactor long.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city" formControlName="city" placeholder="Enter your city">
+        <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+          <div *ngIf="city.errors.required">
+            city is required.
+          </div>
+          <div *ngIf="city.errors.minlength">
+            city must be 4 charactor long.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Select Country</label>
+        <select formControlName="country" class="form-control" id="exampleFormControlSelect1">
+          <option value="Nepal">Nepal</option>
+          <option value="India">India</option>
+          <option value="Bangladesh">Bangladesh</option>
+          <option value="Bhutan">Bhutan</option>
+          <option value="Pakistan">Pakistan</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="zip">ZIP</label>
+        <input type="text" class="form-control" id="zip" formControlName="zip" placeholder="Enter your ZIP code ">
+        <div *ngIf="zip.invalid && (zip.dirty || zip.touched)" class="alert alert-danger">
+          <div *ngIf="zip.errors.required">
+            zip is required.
+          </div>
+          <div *ngIf="zip.errors.minlength">
+            zip must be 4 charactor long.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" class="form-control" id="subject" formControlName="subject" placeholder="Enter subject">
+        <div *ngIf="subject.invalid && (subject.dirty || subject.touched)" class="alert alert-danger">
+          <div *ngIf="subject.errors.required">
+            subject is required.
+          </div>
+          <div *ngIf="subject.errors.minlength">
+            subject must be 3 charactor long.
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
