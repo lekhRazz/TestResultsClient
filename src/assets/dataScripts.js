@@ -1,4 +1,4 @@
-module.exports.myFunction=()=>{
+ function myFunction(){
 
     console.log("javascript function called");
     // Declare variables

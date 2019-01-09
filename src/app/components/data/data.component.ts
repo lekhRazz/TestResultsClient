@@ -16,7 +16,15 @@ export class DataComponent implements OnInit {
   rowSelected: boolean = false;
   objectId = '';
   traineeObject: any = [];
+
   public searchString:string;
+
+   // pager object
+   pager: any = {};
+
+   // paged items
+   pagedItems: any[];
+
   constructor(
     private router: Router,
     private traineeService: TraineeService,
@@ -29,11 +37,23 @@ export class DataComponent implements OnInit {
 
   showTraineeRecords() {
     this.traineeService.getTrainees()
-      .subscribe(data => this.listTrainee = data
+      .subscribe(data =>{ 
+        this.listTrainee = data;
+        this.setPage(1);}
         ,
         error => this.errorMessage = error);
 
   }
+
+  setPage(page: number) {
+    console.log('set page clicked');
+    // get pager object from service
+    this.pager = this.traineeService.getPager(this.listTrainee.length, page);
+
+    // get current page of items
+    this.pagedItems = this.listTrainee.slice(this.pager.startIndex, this.pager.endIndex + 1);
+  }
+
 
   displayFormRegister() {
     this.router.navigate(['/addrecord']);
