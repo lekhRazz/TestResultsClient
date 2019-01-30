@@ -4,6 +4,8 @@ import { throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Trainee } from '../classes/trainee';
 import { environment } from 'src/environments/environment';
+
+
 @Injectable({
   providedIn: 'root'
 })

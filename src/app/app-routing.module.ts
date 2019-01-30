@@ -7,9 +7,11 @@ import { MonitorComponent } from './components/monitor/monitor.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AddRecordComponent } from './components/add-record/add-record.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path:'login',component:LoginComponent},
   { path: 'home', component: DataComponent },
   { path: 'analysis', component: AnalysisComponent },
   { path: 'monitor', component: MonitorComponent },
@@ -28,5 +30,6 @@ export const routingComponents = [
                                   MonitorComponent,
                                   PageNotFoundComponent,
                                   HeaderComponent,
-                                  AddRecordComponent
+                                  AddRecordComponent,
+                                  LoginComponent
                                 ]
